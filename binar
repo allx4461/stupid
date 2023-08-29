@@ -1,0 +1,24 @@
+
+x=0
+def binar(n):
+    n = x
+     
+    b = ''
+     
+    while n > 0:
+        b = str(n % 2) + b
+        n = n // 2
+    n=int(b)
+    return n
+
+
+minn=100000
+x=70
+while x<=1000:
+    r=binar(x)
+    x=x+1
+    n=r//100
+    n=int(n,2)
+    if n<minn:
+        minn=n 
+print(minn)
