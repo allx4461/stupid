@@ -1,28 +1,30 @@
 m=[]
 x=0
+
 def binar(n):
+    if n == 0:
+        return 0
+
+    bi = ""
+    while n > 0:
+        remainder = n % 2
+        bi = str(remainder) + bi
+        n = n // 2
+
+    return int(bi)
+
+def integ(n):
+    dec = 0
     st = 0
-    bi = 0
 
     while n > 0:
-        if n >= 2 ** st:
-            n = n - 2 ** st
-            bi += 10 ** st
+        dec += (n % 10) * (2 ** st)
+        n = n // 10
         st += 1
 
-    return bi
-def integ(n):
-    dec=0
-    t=0
-    while n>0:
-        st=0
-        dec+=(n%10)*(2**st)
-        n-=dec
-        n=n//10
-        st+=1
     return dec
-minn=100000
 x=70
+minn=10000
 while x<=1000:
     r=binar(x)
     x=x+1
@@ -30,7 +32,5 @@ while x<=1000:
     n=integ(n)
     if n<minn:
         minn=n 
-#print(minn)
-print('10101')
-#print(integ(1010))
-print(binar(4))
+print(minn)
+
